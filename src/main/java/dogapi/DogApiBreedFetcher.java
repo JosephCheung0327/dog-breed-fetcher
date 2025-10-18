@@ -55,7 +55,7 @@ public class DogApiBreedFetcher implements BreedFetcher {
             throw new BreedNotFoundException("Failed to fetch sub-breeds for: " + breed);
           }
 
-          if (responseBody.getString("status") == "success") {
+          if (!responseBody.getString("status").equals("success")) {
             throw new BreedNotFoundException("Breed not found: " + breed);
           }
 
